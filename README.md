@@ -284,4 +284,4 @@ MONGODB_URL=mongodb+srv://sauravkumaronly101:bL6FX%21rSz%2BSzUd%2A@cluster0.ol6e
 JWT=MERN_Fitness_Tracker_Secret_Key
 Frontend Environment Configuration (client/.env):
 env
-REACT_APP_API_URL=http://localhost:8080/api/
+REACT_APP_API_URL=http://localhost:8080/api/ 
