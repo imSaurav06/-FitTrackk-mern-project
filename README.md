@@ -252,3 +252,36 @@ Licensed under the ISC License.
 
 ## 19. Credits
 Built with contributions from developers worldwide on GitHub. Powered by React, Node, Express, and MongoDB.
+
+Local Setup & Execution Commands
+1. Setup Dependencies
+bash
+# In the cloned project directory:
+# Install Server Dependencies
+cd server
+npm install
+# Install Client Dependencies
+cd ../client
+npm install
+2. Local Run (Open in separate terminals)
+Terminal 1 (Backend):
+
+bash...
+cd server
+npm start
+
+Terminal 2 (Frontend):
+
+bash...
+cd client
+npm start
+
+Environment Settings Configured
+Backend Environment Configuration (server/.env):
+env
+PORT=8080
+MONGODB_URL=mongodb+srv://sauravkumaronly101:bL6FX%21rSz%2BSzUd%2A@cluster0.ol6eion.mongodb.net/fitnesstracker?retryWrites=true&w=majority&appName=Cluster0
+JWT=MERN_Fitness_Tracker_Secret_Key
+Frontend Environment Configuration (client/.env):
+env
+REACT_APP_API_URL=http://localhost:8080/api/
