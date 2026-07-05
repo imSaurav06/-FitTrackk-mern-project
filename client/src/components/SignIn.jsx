@@ -43,15 +43,23 @@ const SignIn = () => {
     setLoading(true);
     setButtonDisabled(true);
     if (validateInputs()) {
-      await UserSignIn({ email, password })
+      const payload = { email, password };
+      console.log("Login Request");
+      console.log(payload);
+      await UserSignIn(payload)
         .then((res) => {
+          console.log("Login Response:");
+          console.log(res);
           dispatch(loginSuccess(res.data));
           alert("Login Success");
           setLoading(false);
           setButtonDisabled(false);
         })
         .catch((err) => {
-          alert(err.response.data.message);
+          console.log("Login Response Error:");
+          console.log(err);
+          const errMsg = err.response?.data?.message || err.message || "Network error. Server could not be reached.";
+          alert(errMsg);
           setLoading(false);
           setButtonDisabled(false);
         });

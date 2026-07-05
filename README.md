@@ -10,8 +10,8 @@ Fittrack simplifies daily workout tracking. Users log in, type a string describi
 ---
 
 ## 2. Live Demo
-* **Frontend:** Hosted on Vercel (e.g., `https://fittrack-client.vercel.app`)
-* **Backend API:** Hosted on Render (e.g., `https://fitnesstrack-vtv1.onrender.com/api/`)
+* **Frontend:** Hosted on Vercel (`https://fit-trackk-mern-project.vercel.app`)
+* **Backend API:** Hosted on Render (`https://fittrackk-mern-project.onrender.com/api/`)
 
 ---
 
@@ -206,7 +206,7 @@ Deploy Atlas as detailed in [Section 11](#11-mongodb-atlas-setup).
 3. Import your GitHub repository.
 4. Set **Root Directory** to `client`.
 5. Under **Framework Preset**, choose **Create React App**.
-6. Under **Environment Variables**, add `REACT_APP_API_URL` pointing to your deployed Render URL (e.g., `https://your-backend.onrender.com/api/`).
+6. Under **Environment Variables**, add `REACT_APP_API_URL` pointing to your deployed Render URL (e.g., `https://fittrackk-mern-project.onrender.com/api/`).
 7. Click **Deploy**.
 
 ---
@@ -278,10 +278,12 @@ npm start
 
 Environment Settings Configured
 Backend Environment Configuration (server/.env):
-env
+```env
 PORT=8080
-MONGODB_URL=mongodb+srv://sauravkumaronly101:bL6FX%21rSz%2BSzUd%2A@cluster0.ol6eion.mongodb.net/fitnesstracker?retryWrites=true&w=majority&appName=Cluster0
-JWT=MERN_Fitness_Tracker_Secret_Key
+MONGODB_URL=your_mongodb_connection_string
+JWT=your_jwt_secret_signing_key
+```
 Frontend Environment Configuration (client/.env):
-env
-REACT_APP_API_URL=http://localhost:8080/api/ # -FitTrackk-mern-project
+```env
+REACT_APP_API_URL=http://localhost:8080/api/
+```

@@ -9,6 +9,8 @@ dotenv.config();
 
 export const UserRegister = async (req, res, next) => {
   try {
+    console.log("Register Request body:");
+    console.log(req.body);
     const { email, password, name, img } = req.body;
 
     // Check if the email is in use
@@ -30,7 +32,18 @@ export const UserRegister = async (req, res, next) => {
     const token = jwt.sign({ id: createdUser._id }, process.env.JWT, {
       expiresIn: "9999 years",
     });
-    return res.status(200).json({ token, user });
+
+    console.log("Register Response User:");
+    console.log(createdUser);
+    console.log("Register Response Token:");
+    console.log(token);
+
+    return res.status(200).json({
+      success: true,
+      message: "User registered successfully",
+      token,
+      user: createdUser,
+    });
   } catch (error) {
     return next(error);
   }
@@ -38,6 +51,8 @@ export const UserRegister = async (req, res, next) => {
 
 export const UserLogin = async (req, res, next) => {
   try {
+    console.log("Login Request body:");
+    console.log(req.body);
     const { email, password } = req.body;
 
     const user = await User.findOne({ email: email });
@@ -45,7 +60,6 @@ export const UserLogin = async (req, res, next) => {
     if (!user) {
       return next(createError(404, "User not found"));
     }
-    console.log(user);
     // Check if password is correct
     const isPasswordCorrect = await bcrypt.compareSync(password, user.password);
     if (!isPasswordCorrect) {
@@ -56,7 +70,17 @@ export const UserLogin = async (req, res, next) => {
       expiresIn: "9999 years",
     });
 
-    return res.status(200).json({ token, user });
+    console.log("Login Response User:");
+    console.log(user);
+    console.log("Login Response Token:");
+    console.log(token);
+
+    return res.status(200).json({
+      success: true,
+      message: "Login successful",
+      token,
+      user,
+    });
   } catch (error) {
     return next(error);
   }

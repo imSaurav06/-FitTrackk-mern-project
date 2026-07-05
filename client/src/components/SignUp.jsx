@@ -44,15 +44,23 @@ const SignUp = () => {
     setLoading(true);
     setButtonDisabled(true);
     if (validateInputs()) {
-      await UserSignUp({ name, email, password })
+      const payload = { name, email, password };
+      console.log("SignUp Request");
+      console.log(payload);
+      await UserSignUp(payload)
         .then((res) => {
+          console.log("SignUp Response:");
+          console.log(res);
           dispatch(loginSuccess(res.data));
           alert("Account Created Success");
           setLoading(false);
           setButtonDisabled(false);
         })
         .catch((err) => {
-          alert(err.response.data.message);
+          console.log("SignUp Response Error:");
+          console.log(err);
+          const errMsg = err.response?.data?.message || err.message || "Network error. Server could not be reached.";
+          alert(errMsg);
           setLoading(false);
           setButtonDisabled(false);
         });
